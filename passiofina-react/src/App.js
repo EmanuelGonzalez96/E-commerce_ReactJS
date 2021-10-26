@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { NavBar } from "./components/NavBar.jsx";
-import { Items } from "./components/containers/ItemListContainers";
+import ItemListContainers from "./components/containers/ItemListContainers.jsx";
 
 function App() {
     return ( <
@@ -8,7 +8,7 @@ function App() {
         <
         NavBar / >
         <
-        Items greeting = "Cards de productos" / >
+        ItemListContainers nameProduct = "Cards de productos" / >
         <
         /div>
     )

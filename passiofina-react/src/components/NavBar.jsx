@@ -8,7 +8,7 @@ export const NavBar = () => {
   <Navbar bg="light" expand="lg">
    <Navbar.Brand href="#">passiofina</Navbar.Brand>
    <img className="logo" src={logo} alt="logo" 
-        style={{  height: '115px', width: '120px', borderRadius: '80px', margin: '3px'}}
+      style={{  height: '115px', width: '120px', borderRadius: '80px', margin: '3px'}}
    />
    <Navbar.Toggle aria-controls="navbarScroll" />
    <Navbar.Collapse id="navbarScroll">
@@ -31,7 +31,7 @@ export const NavBar = () => {
         <Button variant="outline-danger">Buscar</Button>
       </Form>
     </Navbar.Collapse>
-   <a className="icon" href="#">   
+   <a className="icon" href="index.html">   
       <IconCart />
    </a>
   </Navbar>
