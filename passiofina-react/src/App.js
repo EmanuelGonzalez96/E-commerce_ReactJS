@@ -6,12 +6,18 @@ function App() {
     return ( <
         div className = "App" >
         <
+        header >
+        <
         NavBar / >
+        <
+        /header> <
+        main >
         <
         ItemListContainers nameProduct = "Cards de productos" / >
         <
+        /main> <
         /div>
-    )
+    );
 }
 
 export default App;

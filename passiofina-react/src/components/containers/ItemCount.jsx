@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-const ItemCount = ({stock, initial}) => {
+const ItemCount = ({stock}) => {
 
- const [count, setCount] = useState(initial)
+ const [count, setCount] = useState(1)
 
     const moreCount = () => {
         if (count === stock){
@@ -14,7 +14,7 @@ const ItemCount = ({stock, initial}) => {
     }
     
     const lessCount = () => {
-        if (count === initial){
+        if (count === 1){
             return count
         }else{
             setCount(count - 1)
