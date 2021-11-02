@@ -11,7 +11,7 @@ const ItemListContainers = ({ nameProduct }) => {
         <div>
             <h4> {nameProduct}</h4>
             <ItemList />
-            <ItemCount onAdd={handleClick}/>
+            <ItemCount stock={10} initial={1} onAdd={handleClick}/>
         </div>
     )
 }

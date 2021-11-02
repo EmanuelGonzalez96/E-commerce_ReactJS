@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 
-const ItemCount = ({stock, onAdd}) => {
+const ItemCount = ({stock, initial, onAdd}) => {
 
- const [count, setCount] = useState(1)
+ const [count, setCount] = useState(initial)
 
     const moreCount = () => {
         if (count === stock){
