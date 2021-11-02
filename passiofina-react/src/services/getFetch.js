@@ -40,6 +40,6 @@ export const getFetch = new Promise((resolve, reject) => {
 
 export const getItem = new Promise((resolve, reject) => {
     setTimeout(() => {
-        resolve(db[0]);
+        resolve(db[3]);
     }, 2000);
 })
