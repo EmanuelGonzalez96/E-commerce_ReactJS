@@ -1,26 +1,28 @@
 import React, {useEffect, useState} from 'react';
-import { getItem } from '../../services/getFetch';
+import { getFetch } from '../../services/getFetch';
+import { useParams } from 'react-router';
 import Loader from '../Loader';
 import ItemDetail from './ItemDetail';
 
 const ItemDetailContainer = () => {
-  const [product, setProduct] = useState({});
+  const [detail, setDetail] = useState({});
   const [loading, setLoading] = useState(true);
 
+  const { idProduct } = useParams();
+
   useEffect(() => {
-    getItem
-    .then(res => setProduct(res))
-    .then(console.log(product))
+    getFetch
+    .then(res => setDetail(res.find(prod => prod.id === parseInt(idProduct))))
     .catch(err => console.log(err))
     .finally(()=> setLoading(false))
-  },[])
+  }, [idProduct])
 
   return (
     <div>
       {
         loading
         ? <Loader />
-        : <ItemDetail detail={product} />
+        : <ItemDetail detail={detail} />
       }
     </div>
   )

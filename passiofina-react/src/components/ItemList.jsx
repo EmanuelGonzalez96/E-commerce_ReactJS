@@ -1,26 +1,16 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import Item from './Item';
-import { getFetch } from '../services/getFetch';
-import Loader from './Loader';
 
 
-const ItemList = () => {
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    getFetch
-    .then(res => setData(res))
-    .catch(err => console.log(err))
-    .finally(()=> setLoading(false))
-  }, [])
-
-
+const ItemList = ({articulos}) => {
   return (
     <div>
-      {loading ? <Loader />: data.map(prod => <Item key={prod.id} detail={prod} />)}
+      {
+        articulos.map(art => <Item key={art.id} detail={art} />)
+      }
     </div>
   )
 }
+
 
 export default ItemList
