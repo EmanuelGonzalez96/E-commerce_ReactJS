@@ -7,7 +7,7 @@ const Item = ({detail}) => {
     <div>
       <Link to={`/detalle/${detail.id}`}>
         <figure>
-          <img src={detail.pictureUrl} alt={detail.name} />
+          <img src={`../${detail.pictureUrl}`} alt={detail.name} />
         </figure>
         <h4>{detail.name}</h4>
       </Link>

@@ -2,12 +2,17 @@ import React from 'react';
 import ItemCount from "./ItemCount";
 import { Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 const ItemDetail = ({detail}) => {
+  const [count, setCount] = useState(0);
+  const onAdd = (quantityToAdd) => {
+    setCount(quantityToAdd)
+  }
   return (
     <>
       <Card style={{ width: '18rem' }}>
-       <Card.Img variant="top" src={detail.pictureUrl} />
+       <Card.Img variant="top" src={`../${detail.pictureUrl}`} />
         <Card.Body>
           <Card.Title>{detail.name}</Card.Title>
           <span>Categoria: <Link to={`/categoria/${detail.category}`}>{detail.category}</Link></span>
@@ -16,7 +21,7 @@ const ItemDetail = ({detail}) => {
           <Button disabled variant="primary">${detail.price}</Button>
           <Card.Text>{detail.stock} unidades disponibles</Card.Text>
         </Card.Body>
-        <ItemCount detail={detail} />
+        <ItemCount initial={count} detail={detail} onAdd={onAdd} />
       </Card>
     </>
   )

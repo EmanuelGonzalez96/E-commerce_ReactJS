@@ -1,12 +1,20 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 
 const ItemCount = ({detail}) => {  //const ItemCount = ({stock, initial, onAdd}) => {
 
  const [count, setCount] = useState(1)  //useState(initial)
+ const [button, setButton] = useState(false)
 
  const onAdd = () => {
     alert(`Se agregó al carrito '${detail.name}' ---> ${count} unidades.`)
+  }
+
+ const handlerOnAdd = () => {
+    onAdd();
+    setCount(1);
+    setButton(true);
   }
 
 
@@ -37,7 +45,11 @@ const ItemCount = ({detail}) => {  //const ItemCount = ({stock, initial, onAdd})
               <button>Cantidad {count}</button>
               <button onClick={lessCount}>-</button>
             </div>
-            <button onClick={onAdd}>Agregar al carrito</button> 
+            {
+             button 
+             ? <Link to="/cart">Terminar compra</Link>
+             : <button onClick={handlerOnAdd}>Agregar al carrito</button>
+            }
         </div>
     );
 }
