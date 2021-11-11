@@ -4,11 +4,14 @@ import ItemDetailContainer from "./components/containers/ItemDetailContainer.jsx
 import { NavBar } from "./components/NavBar.jsx";
 import ItemListContainers from "./components/containers/ItemListContainers.jsx";
 import Cart from './components/Cart.jsx';
+import CartContextProvider, { CartContext } from './components/CartContext.jsx';
 
 
 function App() {
     return ( <
         div >
+        <
+        CartContextProvider >
         <
         BrowserRouter >
         <
@@ -34,6 +37,7 @@ function App() {
         /> <
         /Switch> <
         /BrowserRouter> <
+        /CartContextProvider> <
         /div>
     );
 }
