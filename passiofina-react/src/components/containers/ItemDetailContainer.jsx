@@ -1,20 +1,23 @@
 import React, {useEffect, useState} from 'react';
-import { getFetch } from '../../services/getFetch';
 import { useParams } from 'react-router';
 import Loader from '../Loader';
 import ItemDetail from './ItemDetail';
+import { getFirestore } from '../../services/getFirestore';
 
 const ItemDetailContainer = () => {
-  const [detail, setDetail] = useState({});
+  const [product, setProduct] = useState({});
   const [loading, setLoading] = useState(true);
 
   const { idProduct } = useParams();
 
   useEffect(() => {
-    getFetch
-    .then(res => setDetail(res.find(prod => prod.id === parseInt(idProduct))))
+    const db = getFirestore();
+    const dbQuery = db.collection("items").doc(idProduct).get();
+    dbQuery
+    .then(res => setProduct({id: res.id, ...res.data()}))
     .catch(err => console.log(err))
-    .finally(()=> setLoading(false))
+    .finally(()=> setLoading(false));
+
   }, [idProduct])
 
   return (
@@ -22,7 +25,7 @@ const ItemDetailContainer = () => {
       {
         loading
         ? <Loader />
-        : <ItemDetail detail={detail} />
+        : <ItemDetail product={product} />
       }
     </div>
   )

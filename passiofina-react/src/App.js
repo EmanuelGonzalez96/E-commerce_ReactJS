@@ -23,21 +23,19 @@ function App() {
         <
         ItemListContainers nameProduct = "Cards de productos" / >
         <
-        /Route>
-
-        <
+        /Route> <
         Route exact path = '/categoria/:idCategory'
         component = { ItemListContainers }
-        /> <
+        />  <
         Route exact path = '/detalle/:idProduct'
         component = { ItemDetailContainer }
-        /> <
+        />  <
         Route exact path = '/cart'
         component = { Cart }
-        /> <
-        /Switch> <
-        /BrowserRouter> <
-        /CartContextProvider> <
+        />  <
+        /Switch>  <
+        /BrowserRouter>  <
+        /CartContextProvider>  <
         /div>
     );
 }

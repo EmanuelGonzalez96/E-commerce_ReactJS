@@ -17,18 +17,18 @@ const CartContextProvider = ({children}) => {
     calcQuantity();
   }, [cartList])
 
-  const addItem = (detail) => {
+  const addItem = (product) => {
 
-    const itemInCart = isInCart(detail.id);
+    const itemInCart = isInCart(product.id);
 
     if(!itemInCart){
-      setCartList([...cartList, detail])
+      setCartList([...cartList, product])
     }else{
       const newCartList = cartList.map((item) => {
         if(item.id === itemInCart.id){
           return {
             ...item,
-            quantity: item.quantity + detail.quantity
+            quantity: item.quantity + product.quantity
           }
         }
         
